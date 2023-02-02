@@ -1,19 +1,24 @@
-#' Access the public security statistics of the State of Rio de Janeiro
+#' Access the public security statistics of the State of Rio de Janeiro by month
 #'
+#' Returns monthly data on police occurrences in the State of Rio de Janeiro in the form of a dataframe.
 #'
-#' DESCRIÇÃO DOS DADOS return it in the form of a dataframe.
-#'
+#' To see the dictionary of variables, use the function monthly_stats_dictionary().
 #'
 #' @importFrom utils download.file unzip
 #'
-#' @param by selects the years which data will be downloaded. character.
-#' @param value selects the public agency to be searched. see the available agencies in agencies_initials. character.
+#' @param by selects the spatial division of the data. It might be: "police_station_area", "municipality" or "state". character.
 #'
-#' @return a dataframe ...
+#' @param value allows you to choose whether the values will be in absolute numbers ("standard") or per 100,000 inhabitants ("per_100k"). character.
+#'
+#' @return a dataframe
+#'
 #' @examples
-#' \dontrun{monthly_stats(by = "")}
+#' monthly_stats(by = "police_station_area")
+#'
 #' @export
 monthly_stats <- function(by, value = 'standard') {
+
+  hom_doloso <- cmba <- NULL
 
   if(by == 'police_station_area' & value == 'standard') {
     link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv'
@@ -43,29 +48,15 @@ monthly_stats <- function(by, value = 'standard') {
   df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
     janitor::clean_names()
 
+  if(by == 'municipality' & value == 'per_100k') {
+    suppressWarnings({
+    df <- df |>
+      dplyr::mutate(dplyr::across(c(hom_doloso:cmba),
+                                  ~ readr::parse_number(., locale = readr::locale(decimal_mark = ","))))
+    })
+  }
+
+  message('Query completed.')
   return(df)
 
 }
-
-
-df1 <- monthly_stats(by = 'police_station_area')
-df2 <- monthly_stats(by = 'police_station_area', value = 'per_100k')
-df3 <- monthly_stats(by = 'municipality', value = 'standard')
-df4 <- monthly_stats(by = 'municipality', value = 'per_100k')
-df5 <- monthly_stats(by = 'state', value = 'standard')
-df6 <- monthly_stats(by = 'state', value = 'per_100k')
-
-
-
-# Trocar virgula por ponto naqueles dataframes a cada 100 mil hab
-# coluna 7 até a 50 para municipality
-# coluna 4 até 50 para state
-
-
-# Função para dicionários xlsx ???
-# https://www.ispdados.rj.gov.br/EstSeguranca.html
-
-
-# funções para criar scripts e teste
-# use_r(name = NULL, open = rlang::is_interactive())
-# use_test(name = NULL, open = rlang::is_interactive())

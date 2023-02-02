@@ -1,0 +1,10 @@
+bibentry(
+  bibtype    = "Misc",
+  title    = "ISPDATA: the package to access public security data from the State of Rio de Janeiro.",
+  author   = as.person("Igor Laltuf"),
+  year     = 2023,
+  url      = "https://github.com/igorlaltuf/ispdata",
+  textVersion = paste(
+
+  )
+)

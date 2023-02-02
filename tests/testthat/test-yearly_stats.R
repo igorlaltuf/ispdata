@@ -1,3 +1,6 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
-})
+
+
+#
+#
+# df1 <- yearly_stats(by = 'state')
+# df2 <- yearly_stats(by = 'municipality')

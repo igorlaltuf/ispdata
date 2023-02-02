@@ -1,15 +1,23 @@
 Package: ispdata
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Access Data from the Public Security Institute of the State of Rio de Janeiro
+Version: 1.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Igor", "Laltuf", , "igorlaltuf@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = '<https://orcid.org/0000-0002-5614-4404>'))
+Description: Allows access to data from the Rio de Janeiro Public Security Institute (ISP), such as criminal statistics, data on gun seizures and femicide. The package makes it easy to import the data into R.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Imports: 
+    dplyr,
+    janitor,
+    openxlsx,
+    readr
+Depends: 
+    R (>= 2.10)
+LazyData: true
+LazyDataCompression:xz
