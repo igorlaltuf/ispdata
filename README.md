@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ispdata: the package to access public security statistics of the State of Rio de Janeiro
+# ispdata: o pacote para acessar as estatísticas de Segurança Pública do Estado do Rio de Janeiro
 
 <!-- badges: start -->
 
