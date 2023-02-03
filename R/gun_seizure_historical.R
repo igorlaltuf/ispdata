@@ -1,14 +1,12 @@
 #' Access historical data from seizure of firearms in State of Rio de Janeiro
 #'
-#' Returns historical data about seizure of firearms in State of Rio de Janeiro in the form of a dataframe.
+#' Returns monthly historical data about seizure of firearms in State of Rio de Janeiro in the form of a dataframe.
 #'
-#' Data availability:
-#' total for the state from 2000 to 2006.
-#' total for police station area from 2003 to 2006.
+#' Data availability from 2000 to 2006 for the State and from 2003 to 2006 for the Police Station Area.
 #'
 #' @importFrom utils download.file unzip
 #'
-#' @param by selects the gun type: "firearms" or "edged_weapons". character.
+#' @param by selects the spatial division of the data: "police_station_area" or "state". character.
 #'
 #' @return a dataframe
 #'

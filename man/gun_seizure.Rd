@@ -13,7 +13,7 @@ gun_seizure(gun_type)
 a dataframe
 }
 \description{
-Returns data about gun seizure in State of Rio de Janeiro in the form of a dataframe.
+Returns monthly data about gun seizure in State of Rio de Janeiro in the form of a dataframe.
 }
 \examples{
 gun_seizure(gun_type = "firearms")

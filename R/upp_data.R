@@ -5,7 +5,7 @@
 #'
 #' @importFrom utils download.file unzip
 #'
-#' @param data selects the data: "stats", "population", "population_projection" or "area_m2". character.
+#' @param data selects the data: "stats", "dates", "population" or "area_m2". character.
 #'
 #'
 #' @return a dataframe or a sf object.

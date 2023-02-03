@@ -7,16 +7,16 @@
 crimes_against_life(type)
 }
 \arguments{
-\item{type}{selects the type: "violent_lethality", "violent_lethality_elucidation_rate","officers_killed_on_duty", "femicide". character.}
+\item{type}{allows you to select the type of violent crime: "femicide", "violent_lethality", "violent_lethality_elucidation_rate" or "officers_killed_on_duty". character.}
 }
 \value{
 a dataframe
 }
 \description{
-Returns yearly data about crimes against life in the State of Rio de Janeiro in the form of a dataframe.
+Returns monthly data about crimes against life in the State of Rio de Janeiro in the form of a dataframe.
 }
 \details{
-The data available are on femicide, death of police officers on duty, violent lethality and the rate of elucidation of cases of violent lethality.
+The data available are on femicide, violent lethality, the rate of elucidation of cases of violent lethality or death of police officers on duty.
 }
 \examples{
 crimes_against_life(type = "femicide")

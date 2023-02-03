@@ -7,7 +7,7 @@
 upp_data(data)
 }
 \arguments{
-\item{data}{selects the data: "stats", "population", "population_projection" or "area_m2". character.}
+\item{data}{selects the data: "stats", "dates", "population" or "area_m2". character.}
 }
 \value{
 a dataframe or a sf object.

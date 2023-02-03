@@ -1,13 +1,13 @@
 #' Access the public security statistics about crimes against life in the State of Rio de Janeiro
 #'
-#' Returns yearly data about crimes against life in the State of Rio de Janeiro in the form of a dataframe.
+#' Returns monthly data about crimes against life in the State of Rio de Janeiro in the form of a dataframe.
 #'
-#' The data available are on femicide, death of police officers on duty, violent lethality and the rate of elucidation of cases of violent lethality.
+#' The data available are on femicide, violent lethality, the rate of elucidation of cases of violent lethality or death of police officers on duty.
 #'
 #'
 #' @importFrom utils download.file unzip
 #'
-#' @param type selects the type: "violent_lethality", "violent_lethality_elucidation_rate","officers_killed_on_duty", "femicide". character.
+#' @param type allows you to select the type of violent crime: "femicide", "violent_lethality", "violent_lethality_elucidation_rate" or "officers_killed_on_duty". character.
 #'
 #' @return a dataframe
 #'

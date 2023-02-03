@@ -1,6 +1,6 @@
 #' Access data from gun seizure in State of Rio de Janeiro
 #'
-#' Returns data about gun seizure in State of Rio de Janeiro in the form of a dataframe.
+#' Returns monthly data about gun seizure in State of Rio de Janeiro in the form of a dataframe.
 #'
 #' @importFrom utils download.file unzip
 #'
