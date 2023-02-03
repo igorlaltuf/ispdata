@@ -4,4 +4,5 @@ spatial_regions_rj <- sf::st_read('data-raw/grandes_regioes/LM_REGIAO_SESEG.shp'
   janitor::clean_names() |>
   dplyr::select(id1, regiao, geometry)
 
-usethis::use_data(spatial_regions_rj, overwrite = TRUE)
+usethis::use_data(spatial_regions_rj, overwrite = TRUE,
+                  compress = "xz")

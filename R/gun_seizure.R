@@ -9,7 +9,7 @@
 #' @return a dataframe
 #'
 #' @examples
-#' gun_seizure(gun_type = "firearms")
+#' \donttest{gun_seizure(gun_type = "firearms")}
 #'
 #' @export
 gun_seizure <- function(gun_type) {

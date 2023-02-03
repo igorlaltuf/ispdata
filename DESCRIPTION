@@ -1,5 +1,5 @@
 Package: ispdata
-Title: Access Data from the Public Security Institute of the State of Rio de Janeiro
+Title: Access Data from the Public Security Institute of the State of Rio De Janeiro
 Version: 1.0
 Authors@R: 
     person("Igor", "Laltuf", , "igorlaltuf@gmail.com", role = c("aut", "cre"),

@@ -16,6 +16,6 @@ a dataframe
 Returns monthly data about gun seizure in State of Rio de Janeiro in the form of a dataframe.
 }
 \examples{
-gun_seizure(gun_type = "firearms")
+\donttest{gun_seizure(gun_type = "firearms")}
 
 }

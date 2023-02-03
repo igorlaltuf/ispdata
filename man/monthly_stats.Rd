@@ -21,6 +21,6 @@ Returns monthly data on police occurrences in the State of Rio de Janeiro in the
 To see the dictionary of variables, use the function monthly_stats_dictionary().
 }
 \examples{
-monthly_stats(by = "police_station_area")
+\donttest{monthly_stats(by = "police_station_area")}
 
 }

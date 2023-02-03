@@ -13,7 +13,7 @@
 #' @return a dataframe
 #'
 #' @examples
-#' monthly_stats(by = "police_station_area")
+#' \donttest{monthly_stats(by = "police_station_area")}
 #'
 #' @export
 monthly_stats <- function(by, value = 'standard') {

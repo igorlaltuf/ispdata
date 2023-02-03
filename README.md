@@ -19,7 +19,7 @@ Pública (ISP) do Rio de Janeiro por meio do R.
 
 ## Instalação
 
-Para instalar via [CRAN](https://CRAN.R-project.org/package=bndesr):
+Para instalar via [CRAN](https://CRAN.R-project.org/package=ispdata):
 
 ``` r
 install.packages("ispdata")

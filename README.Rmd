@@ -27,7 +27,7 @@ O pacote ispdata permite acessar os dados do Instituto de Segurança Pública (I
 
 ## Instalação
 
-Para instalar via [CRAN](https://CRAN.R-project.org/package=bndesr):
+Para instalar via [CRAN](https://CRAN.R-project.org/package=ispdata):
 
 ``` r
 install.packages("ispdata")
