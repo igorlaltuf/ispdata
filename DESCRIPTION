@@ -1,23 +1,23 @@
 Package: ispdata
-Title: Access Data from the Public Security Institute of the State of Rio De Janeiro
-Version: 1.0
-Authors@R: 
+Title: Access Data from the Public Security Institute of the State of Rio De Janeiro 
+Version: 1.0.1
+Authors@R: c(
     person("Igor", "Laltuf", , "igorlaltuf@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-5614-4404"))
-Description: Allows access to data from the Rio de Janeiro Public Security Institute (ISP), such as criminal statistics, data on gun seizures and femicide. The package makes it easy to import the data into R.<https://www.ispdados.rj.gov.br/>.
+           comment = c(ORCID = "https://orcid.org/0000-0002-5614-4404")),
+    person("Instituto de Segurança Pública", role = c("aut", "cph")))
+Description: Allows access to data from the Rio de Janeiro Public Security Institute (ISP), such as criminal statistics, data on gun seizures and femicide. The package also contains the spatial data of Pacifying Police Units (UPPs) and Integrated Public Safety Regions, Areas and Circumscriptions. 
 License: MIT + file LICENSE
+Depends: R (>= 2.10)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+LazyData: true
+LazyDataCompression:xz
 Imports: 
     dplyr,
     janitor,
     openxlsx,
     readr
-Depends: 
-    R (>= 2.10)
-LazyData: true
-LazyDataCompression:xz

@@ -6,3 +6,4 @@ spatial_aisp <- sf::st_read('data-raw/shp_aisp/lm_aisp_2019.shp') |>
 
 usethis::use_data(spatial_aisp, overwrite = TRUE,
                   compress = "xz")
+
