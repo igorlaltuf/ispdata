@@ -82,7 +82,7 @@ shape <- spatial_upp
 Exemplo:
 Quantidade de tentativas de feminicídio de outubro de 2016 até dezembro de 2022 por CISP:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(ispdata)
 library(dplyr)
 library(ggplot2)
