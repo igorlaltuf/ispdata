@@ -74,6 +74,45 @@ Dados espaciais vetoriais dos limites das UPPs:
 shape <- spatial_upp
 ```
 
+Exemplo: Quantidade de tentativas de feminicídio de outubro de 2016 até
+dezembro de 2022 por CISP:
+
+``` r
+library(ispdata)
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.2.2
+library(sf)
+#> Linking to GEOS 3.9.1, GDAL 3.4.3, PROJ 7.2.1; sf_use_s2() is TRUE
+
+df <- crimes_against_life(type = 'femicide') |>
+  group_by(cisp) |>
+  summarise(total = sum(feminicidio_tentativa)) |>
+  left_join(spatial_cisp, by = c("cisp" = "dp")) |>
+  filter(aisp %in% c(27, 40, 31, 14, 18, 41, 9, 6, 23, 3, 16, 22, 4, 17, 19, 2))|>
+  st_as_sf()
+#> ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+#> Query completed.
+
+ggplot() + 
+  geom_sf(data = df, mapping = aes(fill = total)) +
+  theme_classic() +
+  scale_fill_viridis_c()
+```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+
+Em breve serão adicionados dados populacionais no pacote para permitir a
+análise de ocorrências a cada 100 mil habitantes.
+
 ## Citação
 
 Para citar em trabalhos, use:
