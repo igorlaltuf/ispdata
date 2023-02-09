@@ -11,4 +11,12 @@
 #'   \item{geometry}{Spatial vector data of the regions}
 #' }
 #' @source <https://www.ispdados.rj.gov.br/Arquivos/RegioesSHP.rar>
-"spatial_regions_rj"
+# "spatial_regions_rj"
+delayedAssign("spatial_regions_rj", local({
+  try(
+    sf::read_sf(
+      system.file("inst/extdata/spatial_regions_rj.gpkg", package = "ispdata")
+    ),
+    silent = TRUE
+  )
+}))
