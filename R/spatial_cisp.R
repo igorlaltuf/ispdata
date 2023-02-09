@@ -11,11 +11,4 @@
 #'   \item{geometry}{Spatial vector data of CISP}
 #' }
 #' @source <https://www.ispdados.rj.gov.br/Arquivos/CISPshp.rar>
-delayedAssign("spatial_cisp", local({
-  try(
-    sf::read_sf(
-      system.file("inst/extdata/spatial_cisp.gpkg", package = "ispdata")
-    ),
-    silent = TRUE
-  )
-}))
+"spatial_cisp"

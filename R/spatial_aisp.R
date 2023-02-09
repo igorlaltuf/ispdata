@@ -11,11 +11,4 @@
 #'   \item{geometry}{Spatial vector data of AISP}
 #' }
 #' @source <https://www.ispdados.rj.gov.br/Arquivos/AISPshp.rar>
-delayedAssign("spatial_aisp", local({
-  try(
-    sf::read_sf(
-      system.file("inst/extdata/spatial_aisp.gpkg", package = "ispdata")
-    ),
-    silent = TRUE
-  )
-}))
+"spatial_aisp"

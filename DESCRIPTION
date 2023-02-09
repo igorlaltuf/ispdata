@@ -20,5 +20,4 @@ Imports:
     dplyr,
     janitor,
     openxlsx,
-    readr,
-    sf
+    readr
