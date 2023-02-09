@@ -1,6 +1,6 @@
 # Tests for the function monthly_stats
 
-df <- monthly_stats(by = 'police_station_area')
+df <- monthly_stats(by = 'cisp')
 
 test_that("Total de linhas e colunas", {
   expect_gt(nrow(df), 32244)

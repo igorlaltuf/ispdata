@@ -7,7 +7,7 @@
 monthly_stats(by, value = "standard")
 }
 \arguments{
-\item{by}{selects the spatial division of the data. It might be: "police_station_area", "municipality" or "state". character.}
+\item{by}{selects the spatial division of the data. It might be: "cisp", "municipality" or "state". character.}
 
 \item{value}{allows you to choose whether the values will be in absolute numbers ("standard") or per 100,000 inhabitants ("per_100k"). character.}
 }
@@ -21,6 +21,6 @@ Returns monthly data on police occurrences in the State of Rio de Janeiro in the
 To see the dictionary of variables, use the function monthly_stats_dictionary().
 }
 \examples{
-\donttest{monthly_stats(by = "police_station_area")}
+\donttest{monthly_stats(by = "cisp")}
 
 }

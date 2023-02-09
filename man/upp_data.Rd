@@ -7,10 +7,10 @@
 upp_data(data)
 }
 \arguments{
-\item{data}{selects the data: "stats", "dates", "population" or "area_m2". character.}
+\item{data}{selects the data: "stats", "dates" or "area_m2". character.}
 }
 \value{
-a dataframe or a sf object.
+a dataframe.
 }
 \description{
 Returns data about Pacifying Police Units in the form of a dataframe.

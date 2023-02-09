@@ -7,7 +7,7 @@
 monthly_stats_dictionary(by, value = "standard")
 }
 \arguments{
-\item{by}{selects the spatial division of the dictionary. It might be: "police_station_area", "municipality" or "state". character.}
+\item{by}{selects the spatial division of the dictionary. It might be: "cisp", "municipality" or "state". character.}
 
 \item{value}{selects the type of value: absolute numbers ("standard") or per 100,000 inhabitants ("per_100k"). character.}
 }

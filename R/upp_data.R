@@ -2,13 +2,12 @@
 #'
 #' Returns data about Pacifying Police Units in the form of a dataframe.
 #'
-#'
 #' @importFrom utils download.file unzip
 #'
-#' @param data selects the data: "stats", "dates", "population" or "area_m2". character.
+#' @param data selects the data: "stats", "dates" or "area_m2". character.
 #'
 #'
-#' @return a dataframe or a sf object.
+#' @return a dataframe.
 #'
 #' @examples
 #' upp_data(data = "stats")
@@ -21,7 +20,7 @@ upp_data <- function(data) {
   if(data == 'stats') {
     link <- 'https://www.ispdados.rj.gov.br/Arquivos/UppEvolucaoMensalDeTitulos.csv'
 
-    df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
+    df <- readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
       janitor::clean_names()
 
     message('Query completed.')
@@ -31,10 +30,6 @@ upp_data <- function(data) {
 
   if(data == 'dates') {
     link <- 'https://www.ispdados.rj.gov.br/Arquivos/UppDatasDeOcupacaoeInstalacao.xlsx'
-  }
-
-  if(data == 'population') {
-    link <- 'https://www.ispdados.rj.gov.br/Arquivos/PopulacaoResidenteUpp2010.xlsx'
   }
 
   if(data == 'area_m2') {
@@ -49,11 +44,6 @@ upp_data <- function(data) {
       dplyr::mutate(data_ocupacao = as.Date(data_ocupacao, origin = "1899-12-30"),
                     data_instalacao = as.Date(data_instalacao, origin = "1899-12-30"),
                     data_extincao = substr(as.character(as.Date(data_extincao, origin = "1899-12-30")), 0, 7))
-  }
-
-  if(data == "population") {
-    df <- df |>
-      dplyr::mutate(pop_2010 = round(pop_2010 ,0))
   }
 
   message('Query completed.')

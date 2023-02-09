@@ -2,21 +2,21 @@
 #'
 #' Returns monthly historical data about seizure of firearms in State of Rio de Janeiro in the form of a dataframe.
 #'
-#' Data availability from 2000 to 2006 for the State and from 2003 to 2006 for the Police Station Area.
+#' Data availability from 2000 to 2006 for the State and from 2003 to 2006 for the Police Station Area (also called CISP).
 #'
 #' @importFrom utils download.file unzip
 #'
-#' @param by selects the spatial division of the data: "police_station_area" or "state". character.
+#' @param by selects the spatial division of the data: "cisp" or "state". character.
 #'
 #' @return a dataframe
 #'
 #' @examples
-#' gun_seizure_historical(by = "police_station_area")
+#' gun_seizure_historical(by = "cisp")
 #'
 #' @export
 gun_seizure_historical <- function(by) {
 
-  if(by == 'police_station_area') {
+  if(by == 'cisp') {
    link <- "https://www.ispdados.rj.gov.br/Arquivos/ArmasDP2003_2006.csv"
   }
 

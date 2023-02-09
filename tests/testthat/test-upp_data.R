@@ -6,12 +6,6 @@ test_that("Total de linhas e colunas", {
   expect_equal(ncol(df), 42)
 })
 
-df <- upp_data(data = 'population')
-
-test_that("Total de linhas e colunas", {
-  expect_gt(nrow(df), 37)
-  expect_equal(ncol(df), 3)
-})
 
 df <- upp_data(data = 'dates')
 

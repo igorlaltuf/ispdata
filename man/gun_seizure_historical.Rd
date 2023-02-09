@@ -7,7 +7,7 @@
 gun_seizure_historical(by)
 }
 \arguments{
-\item{by}{selects the spatial division of the data: "police_station_area" or "state". character.}
+\item{by}{selects the spatial division of the data: "cisp" or "state". character.}
 }
 \value{
 a dataframe
@@ -16,9 +16,9 @@ a dataframe
 Returns monthly historical data about seizure of firearms in State of Rio de Janeiro in the form of a dataframe.
 }
 \details{
-Data availability from 2000 to 2006 for the State and from 2003 to 2006 for the Police Station Area.
+Data availability from 2000 to 2006 for the State and from 2003 to 2006 for the Police Station Area (also called CISP).
 }
 \examples{
-gun_seizure_historical(by = "police_station_area")
+gun_seizure_historical(by = "cisp")
 
 }

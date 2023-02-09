@@ -5,7 +5,7 @@
 #'
 #' @importFrom utils download.file unzip
 #'
-#' @param by selects the spatial division of the dictionary. It might be: "police_station_area", "municipality" or "state". character.
+#' @param by selects the spatial division of the dictionary. It might be: "cisp", "municipality" or "state". character.
 #' @param value selects the type of value: absolute numbers ("standard") or per 100,000 inhabitants ("per_100k"). character.
 #'
 #' @return a dataframe
@@ -18,11 +18,11 @@ monthly_stats_dictionary <- function(by, value = 'standard') {
 
   descricao_da_variavel <- NULL
 
-  if(by == 'police_station_area' & value == 'standard') {
+  if(by == 'cisp' & value == 'standard') {
     link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseDpDicionarioDeVariaveis.xlsx'
   }
 
-  if(by == 'police_station_area' & value == 'per_100k') {
+  if(by == 'cisp' & value == 'per_100k') {
     message('The data in this format is not available.\n\nPlease, change the value argument to "standard".\n')
     stop()
   }

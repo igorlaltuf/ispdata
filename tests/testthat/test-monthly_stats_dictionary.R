@@ -1,6 +1,6 @@
 # Tests for the function monthly_stats_dictionary
 
-df <- monthly_stats_dictionary(by = 'police_station_area')
+df <- monthly_stats_dictionary(by = 'cisp')
 
 test_that("Total de linhas e colunas", {
   expect_equal(nrow(df), 63)

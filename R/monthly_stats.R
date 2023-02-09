@@ -6,25 +6,25 @@
 #'
 #' @importFrom utils download.file unzip
 #'
-#' @param by selects the spatial division of the data. It might be: "police_station_area", "municipality" or "state". character.
+#' @param by selects the spatial division of the data. It might be: "cisp", "municipality" or "state". character.
 #'
 #' @param value allows you to choose whether the values will be in absolute numbers ("standard") or per 100,000 inhabitants ("per_100k"). character.
 #'
 #' @return a dataframe
 #'
 #' @examples
-#' \donttest{monthly_stats(by = "police_station_area")}
+#' \donttest{monthly_stats(by = "cisp")}
 #'
 #' @export
 monthly_stats <- function(by, value = 'standard') {
 
   hom_doloso <- cmba <- NULL
 
-  if(by == 'police_station_area' & value == 'standard') {
+  if(by == 'cisp' & value == 'standard') {
     link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv'
   }
 
-  if(by == 'police_station_area' & value == 'per_100k') {
+  if(by == 'cisp' & value == 'per_100k') {
     message('The data in this format is not available.\n\nPlease, change the value argument to "standard".\n')
     stop()
   }

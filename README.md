@@ -74,32 +74,36 @@ Dados espaciais vetoriais dos limites das UPPs:
 shape <- spatial_upp
 ```
 
-Exemplo: Quantidade de tentativas de feminicídio de outubro de 2016 até
-dezembro de 2022 por CISP:
+Exemplo: Quantidade homicídios por intervenção policial a cada 100 mil
+habitantes em 2020 por área de delegacia no município do Rio de Janeiro:
 
 ``` r
+
 library(ispdata)
 library(dplyr)
 library(ggplot2)
 library(sf)
 
-df <- crimes_against_life(type = 'femicide') |>
-  group_by(cisp) |>
-  summarise(total = sum(feminicidio_tentativa)) |>
-  left_join(spatial_cisp, by = c("cisp" = "dp")) |>
-  filter(aisp %in% c(27, 40, 31, 14, 18, 41, 9, 6, 23, 3, 16, 22, 4, 17, 19, 2))|>
-  st_as_sf()
+pop <- population(data = 'cisp_yearly')
+
+df <- monthly_stats(by = 'cisp') |> 
+  left_join(spatial_cisp, by = c("cisp" = "dp", "aisp")) |>
+  filter(aisp %in% c(27, 40, 31, 14, 18, 41, 9, 6, 23, 3, 16, 22, 4, 17, 19, 2),
+         ano == '2020') |>
+  group_by(ano, cisp, geometry) |>
+  summarise(hom_por_interv_policial = sum(hom_por_interv_policial)) |>
+  left_join(pop, by = c("cisp" = "circ", "ano")) |>
+  mutate(v_100k_hab = hom_por_interv_policial/pop * 100000) |>
+  st_as_sf() 
+
 
 ggplot() + 
-  geom_sf(data = df, mapping = aes(fill = total)) +
+  geom_sf(data = df, mapping = aes(fill = v_100k_hab), color = NA) +
   theme_classic() +
   scale_fill_viridis_c()
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
-
-Em breve serão adicionados dados populacionais no pacote para permitir a
-análise de ocorrências a cada 100 mil habitantes.
 
 ## Citação
 
