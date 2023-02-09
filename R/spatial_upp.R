@@ -14,7 +14,6 @@
 #'   \item{geometry}{Spatial vector data of UPPs limits in 2017}
 #' }
 #' @source <https://www.ispdados.rj.gov.br/Arquivos/UPPshp.rar>
-# "spatial_upp"
 delayedAssign("spatial_upp", local({
   try(
     sf::read_sf(

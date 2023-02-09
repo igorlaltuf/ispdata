@@ -10,7 +10,6 @@
 #'   \item{geometry}{Spatial vector data of RISP}
 #' }
 #' @source <https://www.ispdados.rj.gov.br/Arquivos/RISPshp.rar>
-# "spatial_risp"
 delayedAssign("spatial_risp", local({
   try(
     sf::read_sf(

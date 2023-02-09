@@ -11,8 +11,6 @@
 #'   \item{geometry}{Spatial vector data of AISP}
 #' }
 #' @source <https://www.ispdados.rj.gov.br/Arquivos/AISPshp.rar>
-# "spatial_aisp"
-
 delayedAssign("spatial_aisp", local({
   try(
     sf::read_sf(
