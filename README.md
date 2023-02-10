@@ -41,13 +41,13 @@ Acessar estatísticas de segurança pública por área de delegacia de
 polícia:
 
 ``` r
-df <- monthly_stats(by = 'police_station_area') 
+df <- monthly_stats(by = 'cisp') 
 ```
 
 Carregar o dicionário de dados da tabela acima:
 
 ``` r
-data_dictionary <- monthly_stats_dictionary(by = 'police_station_area')
+data_dictionary <- monthly_stats_dictionary(by = 'cisp')
 ```
 
 Acessar dados sobre feminicídio:
