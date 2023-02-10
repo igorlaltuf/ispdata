@@ -10,7 +10,7 @@
 #' @return a dataframe.
 #'
 #' @examples
-#' upp_data(data = "stats")
+#' upp_data(data = "area_m2")
 #'
 #' @export
 upp_data <- function(data) {
