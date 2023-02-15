@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ispdata: o pacote para acessar as estatísticas de Segurança Pública do Estado do Rio de Janeiro
+# ispdata <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ispdata)](https://cran.r-project.org/package=ispdata) [![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/ispdata)](https://CRAN.R-project.org/package=ispdata) [![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/grand-total/ispdata)](https://CRAN.R-project.org/package=ispdata)
