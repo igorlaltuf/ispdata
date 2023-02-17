@@ -8,8 +8,6 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ispdata)](https://cran.r-project.org/package=ispdata)
 [![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/ispdata)](https://CRAN.R-project.org/package=ispdata)
 [![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/grand-total/ispdata)](https://CRAN.R-project.org/package=ispdata)
-[![“Buy Me A
-Coffee”](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/igorlaltuf)
 <!-- badges: end -->
 
 ## Sobre o pacote
