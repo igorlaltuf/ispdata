@@ -72,8 +72,7 @@ Dados espaciais vetoriais dos limites das UPPs:
 shape <- spatial_upp
 ```
 
-Exemplo: Quantidade homicídios por intervenção policial a cada 100 mil
-habitantes em 2020 por área de delegacia no município do Rio de Janeiro:
+Exemplo:
 
 ``` r
 
