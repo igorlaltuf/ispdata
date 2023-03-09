@@ -72,7 +72,8 @@ Dados espaciais vetoriais dos limites das UPPs:
 shape <- spatial_upp
 ```
 
-Exemplo:
+Exemplo: Taxa de homicídios por intervenção policial em 2020 na cidade
+do Rio de Janeiro. Dados por Área Integrada de Segurança Pública (AISP).
 
 ``` r
 
@@ -97,10 +98,9 @@ df <- monthly_stats(by = 'cisp') |>
 ggplot() + 
   geom_sf(data = df, mapping = aes(fill = v_100k_hab), color = NA) +
   theme_classic() +
-  scale_fill_viridis_c(name = "Quantidade") + 
-  labs(title = "Taxa de homicídios por intervenção policial em 2020\nna cidade do Rio de Janeiro",
-       subtitle = "Por Área Integrada de Segurança Pública (AISP)",
-       fill = "Quantidade (por 100 mil habitantes)") +
+  scale_fill_viridis_c(name = "Quantidade para\ncada 100 mil hab") + 
+  labs(title = "",
+       subtitle = "") +
   coord_sf() +
   ggspatial::annotation_scale() +
   ggspatial::annotation_north_arrow(location = "br")
