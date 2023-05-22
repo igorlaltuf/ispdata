@@ -7,17 +7,34 @@
 #' @return a dataframe
 #'
 #' @examples
-#' bicycle_theft()
+#' \dontrun{bicycle_theft()}
 #'
 #' @export
 bicycle_theft <- function() {
 
+  options(scipen = 999, timeout = 1500)
+
   link <- 'https://www.ispdados.rj.gov.br/Arquivos/base_bicicleta.csv'
 
-  df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
-    janitor::clean_names()
+  suppressWarnings({
 
-  message('Query completed.')
+    tryCatch({
+      df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"),
+                              show_col_types = FALSE) |>
+        janitor::clean_names()
+      message("Query completed.")
+
+    },
+    # show error message
+    error = function(e) {
+      message("Error downloading file. Try again later.") }
+    )
+
+  })
+
+  old <- options(timeout = 60)
+  on.exit(options(old))
+
   return(df)
 
 }

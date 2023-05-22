@@ -16,6 +16,6 @@ a dataframe.
 Returns data about Pacifying Police Units in the form of a dataframe.
 }
 \examples{
-upp_data(data = "area_m2")
+\dontrun{upp_data(data = "area_m2")}
 
 }

@@ -13,6 +13,6 @@ a dataframe
 Returns monthly data on police occurrences involving bicycle theft in the State of Rio de Janeiro in the form of a dataframe.
 }
 \examples{
-bicycle_theft()
+\dontrun{bicycle_theft()}
 
 }

@@ -19,6 +19,6 @@ Returns monthly historical data about seizure of firearms in State of Rio de Jan
 Data availability from 2000 to 2006 for the State and from 2003 to 2006 for the Police Station Area (also called CISP).
 }
 \examples{
-gun_seizure_historical(by = "cisp")
+\dontrun{gun_seizure_historical(by = "cisp")}
 
 }

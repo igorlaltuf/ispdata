@@ -21,6 +21,6 @@ Values per 100,000 inhabitants.
 To see the dictionary of variables, use the function yearly_stats_dictionary().
 }
 \examples{
-yearly_stats(by = "state")
+\dontrun{yearly_stats(by = "state")}
 
 }

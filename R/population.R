@@ -10,10 +10,12 @@
 #' @return a dataframe.
 #'
 #' @examples
-#' population(data = "cisp_monthly")
+#' \dontrun{population(data = "cisp_monthly")}
 #'
 #' @export
 population <- function(data) {
+
+  options(scipen = 999, timeout = 1500)
 
   pop_2010 <- pop_38_upps <- pop_circ <- pop_munic <- x38_upp <- NULL
 
@@ -49,39 +51,82 @@ population <- function(data) {
     link <- 'https://www.ispdados.rj.gov.br/Arquivos/PopulacaoProjecaoUpp.xlsx'
   }
 
+
   if(data %in% c('cisp_monthly', 'cisp_yearly', 'muni_monthly', 'muni_yearly', 'state_monthly', 'state_yearly')) {
 
-      df <-  readr::read_csv2(link, show_col_types = FALSE, locale = readr::locale(encoding = "latin1")) |>
-      janitor::clean_names()
+     suppressWarnings({
 
-      if(data == 'cisp_monthly') {
-        df <- df |>
-          dplyr::mutate(pop_circ = round(pop_circ, 0))
-      }
+      tryCatch({
 
-      if(data == 'muni_yearly') {
-        df <- df |>
-          dplyr::mutate(pop_munic = round(pop_munic, 0))
-      }
+        df <- readr::read_csv2(link, show_col_types = FALSE, locale = readr::locale(encoding = "latin1")) |>
+          janitor::clean_names()
 
-    message('Query completed.')
+        if(data == 'cisp_monthly') {
+          df <- df |>
+            dplyr::mutate(pop_circ = round(pop_circ, 0))
+        }
+
+        if(data == 'muni_yearly') {
+          df <- df |>
+            dplyr::mutate(pop_munic = round(pop_munic, 0))
+        }
+        message("Query completed.")
+
+      },
+      # em caso de erro, interrompe a função e mostra msg de erro
+
+      error = function(e) {
+        message("Error downloading file. Try again later.") }
+      )
+
+    })
+
     return(df)
     stop()
   }
 
-  if(data == 'upp_2010'){
-    df <- openxlsx::readWorkbook(link, startRow = 1) |>
-      janitor::clean_names() |>
-      dplyr::mutate(pop_2010 = round(pop_2010, 0))
-  }
+  suppressWarnings({
 
-  if(data == 'upp_projection'){
-    df <- openxlsx::readWorkbook(link, startRow = 1, sheet = 2) |>
-      janitor::clean_names() |>
-      dplyr::rename(pop_38_upps = x38_upp) |>
-      dplyr::mutate(pop_38_upps = round(pop_38_upps, 0))
-  }
+    tryCatch({
+      if(data == 'upp_2010'){
+        df <- openxlsx::readWorkbook(link, startRow = 1) |>
+          janitor::clean_names() |>
+          dplyr::mutate(pop_2010 = round(pop_2010, 0))
 
-  message('Query completed.')
+        message("Query completed.")
+      }
+      },
+    # em caso de erro, interrompe a função e mostra msg de erro
+
+    error = function(e) {
+      message("Error downloading file. Try again later.") }
+    )
+
+  })
+
+
+  suppressWarnings({
+
+    tryCatch({
+
+      if(data == 'upp_projection'){
+        df <- openxlsx::readWorkbook(link, startRow = 1, sheet = 2) |>
+          janitor::clean_names() |>
+          dplyr::rename(pop_38_upps = x38_upp) |>
+          dplyr::mutate(pop_38_upps = round(pop_38_upps, 0))
+
+        message("Query completed.")
+      }
+    },
+    # em caso de erro, interrompe a função e mostra msg de erro
+
+    error = function(e) {
+      message("Error downloading file. Try again later.") }
+    )
+
+  })
+
+  old <- options(timeout = 60)
+  on.exit(options(old))
   return(df)
 }

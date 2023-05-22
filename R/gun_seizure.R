@@ -14,6 +14,8 @@
 #' @export
 gun_seizure <- function(gun_type) {
 
+  options(scipen = 999, timeout = 1500)
+
   if(gun_type == 'firearms') {
     gun_option <- 1
   }
@@ -24,10 +26,25 @@ gun_seizure <- function(gun_type) {
 
   link <- 'https://www.ispdados.rj.gov.br/Arquivos/ArmasApreendidasEvolucaoCisp.xlsx'
 
-  df <- openxlsx::readWorkbook(link, startRow = 1,sheet = gun_option) |>
-    janitor::clean_names()
 
-  message('Query completed.')
-  return(df)
+  suppressWarnings({
+
+    tryCatch({
+      df <- openxlsx::readWorkbook(link, startRow = 1,sheet = gun_option) |>
+        janitor::clean_names()
+      message("Query completed.")
+
+    },
+    # em caso de erro, interrompe a função e mostra msg de erro
+
+    error = function(e) {
+      message("Error downloading file. Try again later.") }
+    )
+
+  })
+
+old <- options(timeout = 60)
+on.exit(options(old))
+return(df)
 
 }

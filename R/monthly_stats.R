@@ -18,6 +18,8 @@
 #' @export
 monthly_stats <- function(by, value = 'standard') {
 
+  options(scipen = 999, timeout = 1500)
+
   hom_doloso <- cmba <- NULL
 
   if(by == 'cisp' & value == 'standard') {
@@ -45,18 +47,42 @@ monthly_stats <- function(by, value = 'standard') {
     link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseEstadoTaxaMes.csv'
   }
 
-  df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
-    janitor::clean_names()
 
-  if(by == 'municipality' & value == 'per_100k') {
-    suppressWarnings({
-    df <- df |>
-      dplyr::mutate(dplyr::across(c(hom_doloso:cmba),
-                                  ~ readr::parse_number(., locale = readr::locale(decimal_mark = ","))))
-    })
-  }
 
-  message('Query completed.')
+
+
+
+  suppressWarnings({
+
+    tryCatch({
+      df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"),
+                              show_col_types = FALSE) |>
+        janitor::clean_names()
+
+
+      if(by == 'municipality' & value == 'per_100k') {
+        suppressWarnings({
+          df <- df |>
+            dplyr::mutate(dplyr::across(c(hom_doloso:cmba),
+                                        ~ readr::parse_number(., locale = readr::locale(decimal_mark = ","))))
+        })
+      }
+
+      message('Query completed.')
+
+    },
+    # em caso de erro, interrompe a função e mostra msg de erro
+
+    error = function(e) {
+      message("Error downloading file. Try again later.") }
+    )
+
+  })
+
+
+  old <- options(timeout = 60)
+  on.exit(options(old))
+
   return(df)
 
 }

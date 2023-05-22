@@ -16,6 +16,6 @@ a dataframe
 Returns the data dictionary of the police occurrences in the State of Rio de Janeiro in the form of a dataframe.
 }
 \examples{
-yearly_stats_dictionary(by = "state")
+\dontrun{yearly_stats_dictionary(by = "state")}
 
 }

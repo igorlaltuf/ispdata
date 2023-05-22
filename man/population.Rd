@@ -16,6 +16,6 @@ a dataframe.
 Returns data about population by state, municipality, CISP (the same as police station area) or Pacifying Police Unit.
 }
 \examples{
-population(data = "cisp_monthly")
+\dontrun{population(data = "cisp_monthly")}
 
 }

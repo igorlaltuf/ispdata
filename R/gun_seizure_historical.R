@@ -11,10 +11,11 @@
 #' @return a dataframe
 #'
 #' @examples
-#' gun_seizure_historical(by = "cisp")
+#' \dontrun{gun_seizure_historical(by = "cisp")}
 #'
 #' @export
 gun_seizure_historical <- function(by) {
+  options(scipen = 999, timeout = 1500)
 
   if(by == 'cisp') {
    link <- "https://www.ispdados.rj.gov.br/Arquivos/ArmasDP2003_2006.csv"
@@ -24,10 +25,28 @@ gun_seizure_historical <- function(by) {
    link <- "https://www.ispdados.rj.gov.br/Arquivos/ArmasEstado2000_2006.csv"
   }
 
-  df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
-    janitor::clean_names()
 
-  message('Query completed.')
+
+  suppressWarnings({
+
+    tryCatch({
+      df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"),
+                              show_col_types = FALSE) |>
+        janitor::clean_names()
+      message("Query completed.")
+
+    },
+    # em caso de erro, interrompe a função e mostra msg de erro
+
+    error = function(e) {
+      message("Error downloading file. Try again later.") }
+    )
+
+  })
+
+  old <- options(timeout = 60)
+  on.exit(options(old))
+
   return(df)
 
 }

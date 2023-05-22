@@ -13,10 +13,12 @@
 #' @return a dataframe
 #'
 #' @examples
-#' yearly_stats(by = "state")
+#' \dontrun{yearly_stats(by = "state")}
 #'
 #' @export
 yearly_stats <- function(by) {
+
+  options(scipen = 999, timeout = 1500)
 
   hom_doloso <- ameaca <- NULL
 
@@ -28,17 +30,31 @@ yearly_stats <- function(by) {
     link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseMunicipioTaxaAno.csv'
   }
 
-  df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
-    janitor::clean_names()
 
-  if(by == 'municipality') {
-    suppressWarnings({
-      df <- df |>
-        dplyr::mutate(dplyr::across(c(hom_doloso:ameaca),
-                                    ~ readr::parse_number(., locale = readr::locale(decimal_mark = ","))))
-    })
-  }
+  suppressWarnings({
 
-  message('Query completed.')
+    tryCatch({
+      df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
+        janitor::clean_names()
+
+      if(by == 'municipality') {
+
+        df <- df |>
+          dplyr::mutate(dplyr::across(c(hom_doloso:ameaca),
+                                      ~ readr::parse_number(., locale = readr::locale(decimal_mark = ","))))
+      }
+      message('Query completed.')
+    },
+    # em caso de erro, interrompe a função e mostra msg de erro
+
+    error = function(e) {
+      message("Error downloading file. Try again later.") }
+    )
+  })
+
+
+  old <- options(timeout = 60)
+  on.exit(options(old))
+
   return(df)
 }

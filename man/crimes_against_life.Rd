@@ -19,6 +19,6 @@ Returns monthly data about crimes against life in the State of Rio de Janeiro in
 The data available are on femicide, violent lethality, the rate of elucidation of cases of violent lethality or death of police officers on duty.
 }
 \examples{
-crimes_against_life(type = "femicide")
+\dontrun{crimes_against_life(type = "femicide")}
 
 }

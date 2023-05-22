@@ -12,7 +12,7 @@
 #' @return a dataframe
 #'
 #' @examples
-#' spatial_info(data = "code_equivalence")
+#' \dontrun{spatial_info(data = "code_equivalence")}
 #'
 #' @export
 spatial_info <- function(data) {

@@ -16,6 +16,6 @@ a dataframe.
 Returns data about car fleet in State of Rio de Janeiro in the form of a dataframe.
 }
 \examples{
-car_fleet(by = "month")
+\dontrun{car_fleet(by = "month")}
 
 }
