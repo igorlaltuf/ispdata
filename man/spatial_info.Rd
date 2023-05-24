@@ -18,6 +18,6 @@ it will show the equivalence between AISP, CISP and RISP codes, neighborhoods an
 data argument is "area_km2", it returns a dataframe with the areas of AISP, CISP and RISP by square kilometers.
 }
 \examples{
-spatial_info(data = "code_equivalence")
+\dontrun{spatial_info(data = "code_equivalence")}
 
 }
