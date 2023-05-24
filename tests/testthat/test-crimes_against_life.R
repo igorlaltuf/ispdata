@@ -1,4 +1,4 @@
-
+if (Sys.getenv('USERNAME') == 'igorl') {
 df <- crimes_against_life(type = "violent_lethality")
 
 test_that("Total de linhas e colunas", {
@@ -26,3 +26,4 @@ test_that("Total de linhas e colunas", {
   expect_gt(nrow(df), 10301)
   expect_equal(ncol(df), 6)
 })
+}

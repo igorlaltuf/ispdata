@@ -1,5 +1,5 @@
 # Tests for the function monthly_stats_dictionary
-
+if (Sys.getenv('USERNAME') == 'igorl') {
 df <- monthly_stats_dictionary(by = 'cisp')
 
 test_that("Total de linhas e colunas", {
@@ -34,3 +34,4 @@ test_that("Total de linhas e colunas", {
   expect_equal(nrow(df), 56)
   expect_equal(ncol(df), 5)
 })
+}

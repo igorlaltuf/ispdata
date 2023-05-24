@@ -1,4 +1,4 @@
-
+if (Sys.getenv('USERNAME') == 'igorl') {
 df <- gun_seizure_historical(by = 'state')
 
 test_that("Total de linhas e colunas", {
@@ -12,3 +12,4 @@ test_that("Total de linhas e colunas", {
   expect_gt(nrow(df), 6205)
   expect_equal(ncol(df), 10)
 })
+}

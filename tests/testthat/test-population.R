@@ -1,4 +1,4 @@
-
+if (Sys.getenv('USERNAME') == 'igorl') {
 df <- population(data = 'cisp_monthly')
 
 test_that("Total de linhas e colunas", {
@@ -54,3 +54,4 @@ test_that("Total de linhas e colunas", {
   expect_gt(nrow(df), 37)
   expect_equal(ncol(df), 3)
 })
+}

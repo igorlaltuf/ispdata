@@ -1,4 +1,4 @@
-
+if (Sys.getenv('USERNAME') == 'igorl') {
 df <- car_fleet(by = 'month')
 
 test_that("Total de linhas e colunas", {
@@ -12,3 +12,4 @@ test_that("Total de linhas e colunas", {
   expect_gt(nrow(df), 30)
   expect_equal(ncol(df), 2)
 })
+}

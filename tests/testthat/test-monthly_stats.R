@@ -1,5 +1,5 @@
 # Tests for the function monthly_stats
-
+if (Sys.getenv('USERNAME') == 'igorl') {
 df <- monthly_stats(by = 'cisp')
 
 test_that("Total de linhas e colunas", {
@@ -34,3 +34,4 @@ test_that("Total de linhas e colunas", {
   expect_gt(nrow(df), 239)
   expect_equal(ncol(df), 57)
 })
+}

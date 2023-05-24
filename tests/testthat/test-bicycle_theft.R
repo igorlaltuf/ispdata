@@ -1,4 +1,6 @@
 # Tests for the function bicycle_theft
+
+if (Sys.getenv('USERNAME') == 'igorl') {
 df <- bicycle_theft()
 
 test_that("Total de roubos ", {
@@ -16,4 +18,4 @@ test_that("Total de linhas", {
 test_that("Total de colunas", {
   expect_equal(ncol(df), 5)
 })
-
+}

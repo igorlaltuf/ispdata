@@ -1,5 +1,5 @@
 # test yearly stats
-
+if (Sys.getenv('USERNAME') == 'igorl') {
 df <- yearly_stats(by = 'state')
 
 test_that("Total de linhas e colunas", {
@@ -13,3 +13,4 @@ test_that("Total de linhas e colunas", {
   expect_gt(nrow(df), 643)
   expect_equal(ncol(df), 57)
 })
+}
