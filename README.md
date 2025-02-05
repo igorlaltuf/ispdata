@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ispdata)](https://cran.r-project.org/package=ispdata)
-[![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/ispdata)](https://CRAN.R-project.org/package=ispdata)
-[![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/grand-total/ispdata)](https://CRAN.R-project.org/package=ispdata)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ispdata)](https://cran.r-project.org/package=ispdata)
+[![CRAN_Download_Badge](https://cranlogs.r-pkg.org/badges/ispdata)](https://CRAN.R-project.org/package=ispdata)
+[![CRAN_Download_Badge](https://cranlogs.r-pkg.org/badges/grand-total/ispdata)](https://CRAN.R-project.org/package=ispdata)
 <!-- badges: end -->
 
 ## Sobre o pacote
@@ -114,11 +114,10 @@ Para citar em trabalhos, use:
 
 ``` r
 citation('ispdata')
+#> Para citar o pacote 'ispdata' em publicações use:
 #> 
-#> To cite package 'ispdata' in publications use:
 #> 
-#> 
-#> A BibTeX entry for LaTeX users is
+#> Uma entrada BibTeX para usuários(as) de LaTeX é
 #> 
 #>   @Misc{,
 #>     title = {ISPDATA: the package to access public security data from the State of Rio de Janeiro.},
